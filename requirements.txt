@@ -1,0 +1,10 @@
+requests
+flask
+watchdog
+transformers
+tensorflow
+# PyTorch
+torch
+torchvision
+torchaudio
+# diffusers
