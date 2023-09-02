@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from services import generate_greeting
 # AI generators
 from src.services.audio import generate_audio
-# from src.services.video import generate_video
+from src.services.video import generate_video
 from src.services.text import generate_text
 from src.services.image import generate_image
 
@@ -70,21 +70,21 @@ def generate_ai_text():
     except Exception as e:
         return jsonify({'error': str(e)})
 
-# @app.route('/generate-video', methods=['POST'])
-# def generate_ai_video():
-#     try:
-#         # Get the user's input text from the request
-#         data = request.get_json()
-#         if 'prompt' not in data:
-#             return jsonify({'error': 'Prompt missing in request data'}), 400
+@app.route('/generate-video', methods=['POST'])
+def generate_ai_video():
+    try:
+        # Get the user's input text from the request
+        data = request.get_json()
+        if 'prompt' not in data:
+            return jsonify({'error': 'Prompt missing in request data'}), 400
 
-#         prompt = data['prompt']
-#         result = generate_video(prompt)
+        prompt = data['prompt']
+        result = generate_video(prompt)
 
-#         return jsonify({'response': result})
+        return jsonify({'response': result})
 
-#     except Exception as e:
-#         return jsonify({'error': str(e)})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
     try:
