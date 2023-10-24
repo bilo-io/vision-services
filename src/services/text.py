@@ -5,7 +5,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
-def generate_text(prompt, max_length=512, model_name="./src/models/gpt2-custom"):
+def generate_text(prompt, max_length=512, model_name="gpt2"):
 # def generate_text(prompt, max_length=512, model_name="codellama/CodeLlama-13b-Instruct-hf"):
     # model: GPT2
     # Load the GPT-2 tokenizer

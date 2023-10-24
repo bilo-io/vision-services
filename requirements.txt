@@ -7,4 +7,5 @@ tensorflow
 torch
 torchvision
 torchaudio
+sentencepiece
 # diffusers

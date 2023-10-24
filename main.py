@@ -6,10 +6,12 @@ from src.services.audio import generate_audio
 from src.services.video import generate_video
 from src.services.text import generate_text
 from src.services.image import generate_image
+# from src.services.code import generate_code
 
 app = Flask(__name__)
 # generator = pipeline("text-generation", model="gpt2")
 
+# -----------------------
 @app.route('/')
 def hello_world():
     return 'Hello, Dudes!!'
@@ -21,6 +23,8 @@ def greet():
         return jsonify({'error': 'Missing parameter \'name\''}), 400
     greeting = generate_greeting(name)
     return jsonify({ 'greeting': greeting })
+
+# -----------------------
 
 @app.route('/generate-audio', methods=['POST'])
 def generate_ai_audio():
@@ -38,6 +42,8 @@ def generate_ai_audio():
     except Exception as e:
         return jsonify({'error': str(e)})
 
+# -----------------------
+
 @app.route('/generate-image', methods=['POST'])
 def generate_ai_image():
     try:
@@ -53,6 +59,8 @@ def generate_ai_image():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+# -----------------------
 
 @app.route('/generate-text', methods=['POST'])
 def generate_ai_text():
@@ -70,6 +78,26 @@ def generate_ai_text():
     except Exception as e:
         return jsonify({'error': str(e)})
 
+# -----------------------
+
+# @app.route('/generate-code', methods=['POST'])
+# def generate_ai_text():
+#     try:
+#         # Get the user's input text from the request
+#         data = request.get_json()
+#         if 'prompt' not in data:
+#             return jsonify({'error': 'Prompt missing in request data'}), 400
+
+#         prompt = data['prompt']
+#         result = generate_code(prompt)
+
+#         return jsonify({'response': result})
+
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
+
+# -----------------------
+
 @app.route('/generate-video', methods=['POST'])
 def generate_ai_video():
     try:
@@ -86,9 +114,12 @@ def generate_ai_video():
     except Exception as e:
         return jsonify({'error': str(e)})
 
+# -----------------------
+
+
 if __name__ == '__main__':
     try:
-        app.run(debug=True)
+        app.run(port=8008, debug=True)
         # app.run()
     except KeyboardInterrupt:
         # Handle a KeyboardInterrupt (Ctrl+C) gracefully
