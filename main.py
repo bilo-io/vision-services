@@ -6,7 +6,7 @@ from src.services.audio import generate_audio
 from src.services.video import generate_video
 from src.services.text import generate_text
 from src.services.image import generate_image
-# from src.services.code import generate_code
+from src.services.code import generate_code
 
 app = Flask(__name__)
 # generator = pipeline("text-generation", model="gpt2")
@@ -80,21 +80,21 @@ def generate_ai_text():
 
 # -----------------------
 
-# @app.route('/generate-code', methods=['POST'])
-# def generate_ai_text():
-#     try:
-#         # Get the user's input text from the request
-#         data = request.get_json()
-#         if 'prompt' not in data:
-#             return jsonify({'error': 'Prompt missing in request data'}), 400
+@app.route('/generate-code', methods=['POST'])
+def generate_ai_code():
+    try:
+        # Get the user's input text from the request
+        data = request.get_json()
+        if 'prompt' not in data:
+            return jsonify({'error': 'Prompt missing in request data'}), 400
 
-#         prompt = data['prompt']
-#         result = generate_code(prompt)
+        prompt = data['prompt']
+        result = generate_code(prompt)
 
-#         return jsonify({'response': result})
+        return jsonify({'response': result})
 
-#     except Exception as e:
-#         return jsonify({'error': str(e)})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 # -----------------------
 
