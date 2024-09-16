@@ -14,6 +14,16 @@
 
 > Swagger docs: [http://0.0.0.0:8000/docs](http://0.0.0.0:8000/docs)
 
+## Hosting
+
+The service is hosted on [Koyeb](https://app.koyeb.com/) and accessible with the URL:
+
+[https://vision-services.koyeb.app](https://vision-services.koyeb.app)
+
+> Further reading
+>
+> - [Koyeb: Deploy FastAPI apps](https://www.koyeb.com/docs/deploy/fastapi)
+
 ## Docker
 
 | Command                                                                   | Description      |
